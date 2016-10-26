@@ -20,8 +20,13 @@ struct Vec3 {
 		for (int i = 0; i < 3; ++i)
 			outputVector.vectorList[i] = u.vectorList[i] * v.vectorList[i];
 	};
-	double length(Vec3 u) {};
-	Vec3 row(Mat3 m, int i) {};
+	double length(Vec3 u) {
+		return sqrt(vectorList[0] * vectorList[0] + vectorList[1] * vectorList[1] + vectorList[2] * vectorList[2]);
+	};
+	Vec3 row(Mat3 m, int i) {
+		Vec3 outputVector;
+		outputVector.vectorList[0] = m.matrixList[]
+	};
 	Vec3 col(Mat3 m, int i) {};
 	Vec3 multiply(Mat3 m, Vec3 u) {};
 };
@@ -29,25 +34,27 @@ struct Vec3 {
 struct Mat3 {
 	double matrixList[9];
 	Mat3 read_mat() {
-		for (int i = 0; i < 3; ++i)
+		Mat3 outputMatrix;
+		for (int i = 0; i < 9; ++i)
 		{
-			for (int j = 0; j < 3; ++j)
-			{
-				//			std::cin >> matrixContents[i, j];
-			}
+
+			std::cin >> outputMatrix.matrixList[i];
 		}
+		return  outputMatrix;
 	};
 		void print(Mat3 m) {
 			std::cout << "[ ";
 			for (int i = 0; i < 9; ++i)
 			{
-				std::cout << matrixList[i];
+				std::cout << m.matrixList[i];
 				if (i < 9)
 					std::cout << ", ";
 			}
 			std::cout << " ]" << std::endl;
 	};
+
 	Mat3 transpose(Mat3 m) {};
+
 	Mat3 multiply(Mat3 m1, Mat3 m2) {};
 };
 
