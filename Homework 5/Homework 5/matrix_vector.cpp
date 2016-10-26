@@ -7,7 +7,7 @@ struct Vec3 {
 		std::cin >> vectorList[0] >> vectorList[1] >> vectorList[2];
 	};
 	void print(Vec3 v) {
-		std::cout << v.vectorList[0] << " " << v.vectorList[1] << " " << v.vectorList[2] << std::endl;
+		std::cout << "(" << v.vectorList[0] << ", " << v.vectorList[1] << ", " << v.vectorList[2] << ")" << std::endl;
 	};
 	Vec3 add(Vec3 u, Vec3 v) {
 		Vec3 outputVector;
@@ -25,7 +25,9 @@ struct Vec3 {
 	};
 	Vec3 row(Mat3 m, int i) {
 		Vec3 outputVector;
-		outputVector.vectorList[0] = m.matrixList[]
+		for (int j = 0; j < 3; ++j)
+			outputVector.vectorList[j] = m.matrixList[j+1]
+		
 	};
 	Vec3 col(Mat3 m, int i) {};
 	Vec3 multiply(Mat3 m, Vec3 u) {};
@@ -71,14 +73,29 @@ int main()
 
 		std::string currentOperation;
 		std::cin >> currentOperation;
-		std::string inputType;
-		std::cin >> inputType;
-		if (inputType == "V")
-		{
+		
+
+		if (currentOperation == "add") {
+
+			std::string inputType;
+			std::cin >> inputType;
 			Vec3 vector1;
 			Vec3 vector2;
+
+			if(inputType == "V")
 			vector1.read_vec();
+			
+			std::string secondType;
+			std::cin >> secondType;
+			if(secondType == "V")
 			vector2.read_vec();
+			else;
+			
+
+		}
+		
+		if (inputType == "V")
+		{
 
 		}
 		if (inputType == "M")
