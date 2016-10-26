@@ -42,16 +42,21 @@ int main()
 		std::string currentPrefix;
 		int startingNumber;
 		int finalNumber;
-		std::cin >> currentPrefix;
+		
+		// Return character is next character, read it to toss it before reading the prefix line
+		char a;
+		std::cin.get(a);
+		
+		getline(std::cin, currentPrefix);
 		std::cin >> startingNumber;
 		std::cin >> finalNumber;
 
 		std::cout << "Case " << i << ":" << std::endl;
 		LabelGenerator currentLabel(currentPrefix, startingNumber);
-		for (int i = startingNumber; i <= finalNumber; ++i) {
+		for (int j = startingNumber; j <= finalNumber; ++j) {
 
 			std::cout << currentLabel.next_label();
-			if (i < finalNumber)
+			if (j < finalNumber)
 				std::cout << " ";
 		}
 	
