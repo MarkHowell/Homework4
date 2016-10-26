@@ -35,7 +35,14 @@ struct Vec3 {
 			outputVector.vectorList[j] = m.matrixList[3 * j + i];
 		return outputVector;
 	};
-	Vec3 multiply(Mat3 m, Vec3 u) {};
+	Vec3 multiply(Mat3 m, Vec3 u) {
+		Vec3 outputVector;
+		for (int i = 0; i < 3; ++i)
+		{
+			outputVector.vectorList[i] = m.matrixList[3 * i] * u.vectorList[0] + m.matrixList[3 * i + 1] * u.vectorList[1] + m.matrixList[3 * i + 2] * u.vectorList[2];
+		}
+		return outputVector;
+	};
 };
 
 struct Mat3 {
@@ -60,7 +67,15 @@ struct Mat3 {
 			std::cout << " ]" << std::endl;
 	};
 
-	Mat3 transpose(Mat3 m) {};
+	Mat3 transpose(Mat3 m) {
+		Mat3 outputMatrix;
+		for (int i = 0; i < 3; ++i)
+		{
+			for (int j = 0; j < 3; ++j)
+				outputMatrix.matrixList[j + 3 * i] = m.matrixList[i + 3 * j];
+		}
+		return outputMatrix;
+	};
 
 	Mat3 multiply(Mat3 m1, Mat3 m2) {};
 };
