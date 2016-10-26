@@ -1,4 +1,4 @@
-/*#include <string>
+#include <string>
 #include <iostream>
 
 struct Vec3 {
@@ -26,10 +26,15 @@ struct Vec3 {
 	Vec3 row(Mat3 m, int i) {
 		Vec3 outputVector;
 		for (int j = 0; j < 3; ++j)
-			outputVector.vectorList[j] = m.matrixList[j+1]
-		
+			outputVector.vectorList[j] = m.matrixList[3 * i + j];
+		return outputVector;
 	};
-	Vec3 col(Mat3 m, int i) {};
+	Vec3 col(Mat3 m, int i) {
+		Vec3 outputVector;
+		for (int j = 0; j < 3; ++j)
+			outputVector.vectorList[j] = m.matrixList[3 * j + i];
+		return outputVector;
+	};
 	Vec3 multiply(Mat3 m, Vec3 u) {};
 };
 
@@ -111,4 +116,3 @@ int main()
 
 	return 0;
 }
-*/
