@@ -114,18 +114,12 @@ int main()
 
 		}
 		
-		if (inputType == "V")
-		{
-
-		}
-		if (inputType == "M")
-		{
+		
 			Mat3 matrix1;
 			Mat3 matrix2;
 			matrix1.read_mat();
 			matrix2.read_mat();
 
-		}
 
 	}
 
