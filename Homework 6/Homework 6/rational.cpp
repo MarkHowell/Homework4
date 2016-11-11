@@ -84,17 +84,30 @@ void Rational::normalize()
 
 Rational Rational::operator+(Rational b) const
 {
-	return Rational();
+	// Need to take in both fractions and equalize the denomenator
+
+	double resultNum = this->num * b.denom + b.num * this->denom;
+	double resultDenom = this->denom * b.denom;
+
+	return Rational(resultNum, resultDenom);
 }
 
 Rational Rational::operator-(Rational b) const
 {
-	return Rational();
+
+	double resultNum = this->num * b.denom - b.num * this->denom;
+	double resultDenom = this->denom * b.denom;
+
+	return Rational(resultNum, resultDenom);
 }
 
 Rational Rational::operator*(Rational b) const
 {
-	return Rational();
+
+	double resultNum = this->num * b.num;
+	double resultDenom = this->denom * b.denom;
+
+	return Rational(resultNum, resultDenom);
 }
 
 Rational Rational::operator/(Rational b) const
@@ -104,7 +117,11 @@ Rational Rational::operator/(Rational b) const
 
 bool Rational::operator==(Rational b) const
 {
-	return false;
+	if (this->num == b.num && this->denom == b.denom)
+		return true;
+
+	else 
+		return false;
 }
 
 bool Rational::operator<(Rational b) const
