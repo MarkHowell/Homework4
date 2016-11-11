@@ -86,8 +86,8 @@ Rational Rational::operator+(Rational b) const
 {
 	// Need to take in both fractions and equalize the denomenator
 
-	double resultNum = this->num * b.denom + b.num * this->denom;
-	double resultDenom = this->denom * b.denom;
+	int resultNum = this->num * b.denom + b.num * this->denom;
+	int resultDenom = this->denom * b.denom;
 
 	return Rational(resultNum, resultDenom);
 }
@@ -95,8 +95,8 @@ Rational Rational::operator+(Rational b) const
 Rational Rational::operator-(Rational b) const
 {
 
-	double resultNum = this->num * b.denom - b.num * this->denom;
-	double resultDenom = this->denom * b.denom;
+	int resultNum = this->num * b.denom - b.num * this->denom;
+	int resultDenom = this->denom * b.denom;
 
 	return Rational(resultNum, resultDenom);
 }
@@ -104,8 +104,8 @@ Rational Rational::operator-(Rational b) const
 Rational Rational::operator*(Rational b) const
 {
 
-	double resultNum = this->num * b.num;
-	double resultDenom = this->denom * b.denom;
+	int resultNum = this->num * b.num;
+	int resultDenom = this->denom * b.denom;
 
 	return Rational(resultNum, resultDenom);
 }
@@ -126,7 +126,10 @@ bool Rational::operator==(Rational b) const
 
 bool Rational::operator<(Rational b) const
 {
-	return false;
+	if ((this->num * b.denom) < (b.num * this->denom))
+		return true;
+	else
+		return false;
 }
 
 double Rational::toDecimal() const
